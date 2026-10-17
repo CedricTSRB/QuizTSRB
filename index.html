@@ -6,12 +6,13 @@
   <meta name="theme-color" content="#0b1020">
   <meta name="description" content="QuizTSRB – Deine Quiz-Arena mit Allgemeinwissen, Gaming, Geografie, Musik, Sport und mehr. Kostenlos und direkt im Browser.">
   <meta property="og:title" content="QuizTSRB – Die Quiz-Arena">
-  <meta property="og:description" content="13 Themenwelten, spannende Spielmodi und jede Menge knifflige Fragen.">
+  <meta property="og:description" content="14 Themenwelten, spannende Spielmodi und jede Menge knifflige Fragen.">
   <title>QuizTSRB – Deine Quiz-Arena</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
   <script>try{document.documentElement.dataset.theme=localStorage.getItem('quiztsrb-theme')||'dark'}catch(e){}</script>
   <script src="questions.js" defer></script>
+  <script src="flags.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -88,7 +89,7 @@
         <div class="setup-card">
           <div class="setup-options">
             <div class="option-block"><h3>Schwierigkeit</h3><div class="chip-group" id="difficulty-options"><button class="chip active" type="button" data-difficulty="all" aria-pressed="true">🎲 Gemischt</button><button class="chip" type="button" data-difficulty="easy" aria-pressed="false">Einfach</button><button class="chip" type="button" data-difficulty="medium" aria-pressed="false">Mittel</button><button class="chip" type="button" data-difficulty="hard" aria-pressed="false">Schwer</button></div></div>
-            <div class="option-block"><h3>Anzahl Fragen</h3><div class="chip-group" id="length-options"><button class="chip" type="button" data-length="5" aria-pressed="false">5 Fragen</button><button class="chip active" type="button" data-length="10" aria-pressed="true">10 Fragen</button><button class="chip" type="button" data-length="20" aria-pressed="false">20 Fragen</button></div></div>
+            <div class="option-block"><h3>Anzahl Fragen</h3><div class="chip-group" id="length-options"><button class="chip" type="button" data-length="5" aria-pressed="false">5 Fragen</button><button class="chip active" type="button" data-length="10" aria-pressed="true">10 Fragen</button><button class="chip" type="button" data-length="20" aria-pressed="false">20 Fragen</button><button class="chip" id="all-flags-option" type="button" data-length="195" aria-pressed="false" hidden>🌍 Alle 195 Flaggen</button></div></div>
           </div>
           <div class="setup-footer"><div><span class="setup-mini-label">DEIN QUIZ</span><strong id="selection-summary">Klassisch · Alle Themen · Gemischt</strong><small id="available-count">Fragen werden vorbereitet</small></div><button class="button button-primary button-big" id="start-quiz" type="button">Spiel starten <span aria-hidden="true">→</span></button></div>
         </div>
@@ -105,7 +106,7 @@
       <div class="question-card">
         <div class="question-badges"><span class="question-category" id="question-category">🧠 Allgemeinwissen</span><span class="question-difficulty" id="question-difficulty">Einfach</span></div>
         <h3 id="question-text">Deine Frage erscheint hier.</h3>
-        <div class="answer-grid" id="answer-grid" role="group" aria-label="Antwortmöglichkeiten"></div>
+        <div class="flag-question" id="flag-question" hidden><div class="flag-image-wrap"><img id="flag-image" alt="Welche Landesflagge ist das?" width="320" height="210"><div class="flag-error" id="flag-error" hidden>Das Flaggenbild konnte nicht geladen werden. Bitte überspringe diese Frage.</div></div><form id="flag-form" class="flag-form" autocomplete="off"><label for="flag-input">Welches Land ist das?</label><div class="flag-input-row"><input id="flag-input" type="text" maxlength="100" placeholder="Ländernamen eingeben ..." aria-label="Ländernamen eingeben" spellcheck="false" required><button class="button button-primary" id="flag-submit" type="submit">Prüfen ↗</button></div><button type="button" class="flag-skip" id="flag-skip">Weiß ich nicht – überspringen</button></form></div><div class="answer-grid" id="answer-grid" role="group" aria-label="Antwortmöglichkeiten"></div>
         <div class="answer-feedback" id="answer-feedback" hidden role="status"></div>
         <div class="question-bottom"><small id="keyboard-hint">Tipp: Antworte mit den Tasten 1–4</small><button type="button" class="button button-primary" id="next-question" hidden>Nächste Frage →</button></div>
       </div>
