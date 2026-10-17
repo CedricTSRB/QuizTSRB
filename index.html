@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="QuizTSRB – Deine Quiz-Arena mit Allgemeinwissen, Gaming, Geografie, Musik, Sport und mehr. Kostenlos und direkt im Browser.">
+  <meta property="og:title" content="QuizTSRB – Die Quiz-Arena">
+  <meta property="og:description" content="12 Themenwelten, spannende Spielmodi und jede Menge knifflige Fragen.">
+  <title>QuizTSRB – Deine Quiz-Arena</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('quiztsrb-theme')||'dark'}catch(e){}</script>
+  <script src="questions.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-a" aria-hidden="true"></div><div class="ambient ambient-b" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="shell topbar">
+      <a class="brand" href="#start" id="brand-link" aria-label="QuizTSRB Startseite"><span class="brand-icon" aria-hidden="true">✦</span><span>QUIZ<span class="brand-accent">TSRB</span></span><span class="brand-tag">BETA</span></a>
+      <nav class="topnav" aria-label="Hauptnavigation">
+        <a href="#modi" data-home-link>Spielmodi</a>
+        <a href="#kategorien" data-home-link>Kategorien</a>
+        <a href="#so-gehts" data-home-link>So geht's</a>
+      </nav>
+      <div class="top-actions">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Design wechseln" title="Design wechseln">☀</button>
+        <button class="button button-small button-outline" id="scores-open" type="button"><span aria-hidden="true">🏆</span><span class="hide-small">Meine Rekorde</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div id="home-screen">
+      <section class="shell hero" id="start">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="pulse-dot"></span> DIE QUIZ-ARENA FÜR ALLE</span>
+          <h1>Zeig, was <span class="gradient-text">du draufhast.</span></h1>
+          <p>Von Gaming bis Geschichte: Teste dein Wissen, knacke deinen Rekord und entdecke jeden Tag eine neue Herausforderung.</p>
+          <div class="hero-actions">
+            <a href="#kategorien" class="button button-primary">Jetzt Quiz starten <span aria-hidden="true">↗</span></a>
+            <button type="button" class="button button-ghost" id="daily-hero">⚡ Tages-Challenge</button>
+          </div>
+          <div class="hero-note"><span class="avatars" aria-hidden="true">🎮 🌍 🧠</span> 100 % kostenlos · Ohne Anmeldung</div>
+        </div>
+        <div class="hero-visual" aria-label="Vorschau einer Quizfrage">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="float-pill pill-top">✦ LEVEL UP!</div>
+          <div class="preview-card">
+            <div class="preview-top"><span class="preview-tag">🧠 ALLGEMEINWISSEN</span><span>01 / 10</span></div>
+            <div class="preview-track"><span></span></div>
+            <div class="preview-question">Welcher Planet ist als der rote Planet bekannt?</div>
+            <div class="preview-answer"><span>A</span> Venus</div>
+            <div class="preview-answer selected"><span>B</span> Mars <b>✓</b></div>
+            <div class="preview-answer"><span>C</span> Jupiter</div>
+            <div class="preview-answer"><span>D</span> Saturn</div>
+            <div class="preview-bottom"><span>🔥 3er-Serie</span><strong>+120 PUNKTE</strong></div>
+          </div>
+          <div class="float-pill pill-bottom">🏆 +120 XP</div>
+        </div>
+      </section>
+
+      <section class="shell stats-strip" aria-label="QuizTSRB in Zahlen">
+        <div><span class="stat-symbol">◈</span><div><strong id="stat-categories">12</strong><small>Kategorien</small></div></div>
+        <div><span class="stat-symbol">✧</span><div><strong id="stat-questions">–</strong><small>Quizfragen</small></div></div>
+        <div><span class="stat-symbol">★</span><div><strong id="stat-best">0</strong><small>Dein Bestwert</small></div></div>
+        <div><span class="stat-symbol">↗</span><div><strong id="stat-games">0</strong><small>Gespielte Runden</small></div></div>
+      </section>
+
+      <section class="shell page-section" id="modi">
+        <div class="section-heading"><div><span class="section-kicker">01 / SPIELMODUS</span><h2>Wie willst du spielen?</h2><p>Such dir deine Herausforderung aus. Du kannst jederzeit neu starten.</p></div></div>
+        <div class="mode-grid" id="mode-grid">
+          <button type="button" class="mode-card active" data-mode="classic" aria-pressed="true"><span class="mode-emoji">🎯</span><span class="mode-text"><strong>Klassisch</strong><small>Frage für Frage zum Highscore.</small></span><span class="mode-check">✓</span></button>
+          <button type="button" class="mode-card" data-mode="blitz" aria-pressed="false"><span class="mode-emoji">⚡</span><span class="mode-text"><strong>Blitz-Quiz</strong><small>15 Sekunden pro Frage.</small></span><span class="mode-check">✓</span></button>
+          <button type="button" class="mode-card" data-mode="survival" aria-pressed="false"><span class="mode-emoji">❤️</span><span class="mode-text"><strong>Überleben</strong><small>Nur 3 Leben – wie weit kommst du?</small></span><span class="mode-check">✓</span></button>
+          <button type="button" class="mode-card" data-mode="truefalse" aria-pressed="false"><span class="mode-emoji">✅</span><span class="mode-text"><strong>Wahr oder falsch?</strong><small>Schnelle Entscheidungen statt vier Optionen.</small></span><span class="mode-check">✓</span></button>
+        </div>
+      </section>
+
+      <section class="shell page-section" id="kategorien">
+        <div class="section-heading"><div><span class="section-kicker">02 / KATEGORIEN</span><h2>Was ist dein Spezialgebiet?</h2><p>Such dir ein Thema aus oder spiel einfach alles gemischt.</p></div><label class="search-field"><span aria-hidden="true">⌕</span><input id="category-search" type="search" placeholder="Thema suchen ..." aria-label="Kategorien durchsuchen" autocomplete="off"></label></div>
+        <div class="categories-grid" id="categories-grid" aria-label="Quizkategorien"></div>
+      </section>
+
+      <section class="shell page-section" id="einstellungen">
+        <div class="section-heading"><div><span class="section-kicker">03 / LOS GEHT'S</span><h2>Deine Runde. Deine Regeln.</h2><p>Pass das Quiz an – und zeig, wie viel du weißt.</p></div></div>
+        <div class="setup-card">
+          <div class="setup-options">
+            <div class="option-block"><h3>Schwierigkeit</h3><div class="chip-group" id="difficulty-options"><button class="chip active" type="button" data-difficulty="all" aria-pressed="true">🎲 Gemischt</button><button class="chip" type="button" data-difficulty="easy" aria-pressed="false">Einfach</button><button class="chip" type="button" data-difficulty="medium" aria-pressed="false">Mittel</button><button class="chip" type="button" data-difficulty="hard" aria-pressed="false">Schwer</button></div></div>
+            <div class="option-block"><h3>Anzahl Fragen</h3><div class="chip-group" id="length-options"><button class="chip" type="button" data-length="5" aria-pressed="false">5 Fragen</button><button class="chip active" type="button" data-length="10" aria-pressed="true">10 Fragen</button><button class="chip" type="button" data-length="20" aria-pressed="false">20 Fragen</button></div></div>
+          </div>
+          <div class="setup-footer"><div><span class="setup-mini-label">DEIN QUIZ</span><strong id="selection-summary">Klassisch · Alle Themen · Gemischt</strong><small id="available-count">Fragen werden vorbereitet</small></div><button class="button button-primary button-big" id="start-quiz" type="button">Spiel starten <span aria-hidden="true">→</span></button></div>
+        </div>
+      </section>
+
+      <section class="shell page-section how-section" id="so-gehts"><div class="section-heading"><div><span class="section-kicker">04 / SO GEHT'S</span><h2>Wissen rein. Punkte raus.</h2></div></div><div class="how-grid"><div><span>01</span><h3>Wähle deine Welt</h3><p>Entscheide dich für eines der Themen oder den bunten Mix.</p></div><div><span>02</span><h3>Beweise dein Wissen</h3><p>Beantworte Fragen, sammle Serien und hol dir Bonuspunkte.</p></div><div><span>03</span><h3>Schlag deinen Rekord</h3><p>Deine Ergebnisse werden auf diesem Gerät gespeichert.</p></div></div></section>
+    </div>
+
+    <section class="shell play-layout" id="game-screen" hidden aria-live="polite">
+      <div class="game-topline"><button class="back-link" id="game-exit" type="button">← Quiz verlassen</button><span class="live-label"><span class="pulse-dot"></span> QUIZ LÄUFT</span></div>
+      <div class="game-head"><div><span class="section-kicker" id="game-mode-label">KLASSISCH</span><h2 id="game-heading">Teste dein Wissen</h2></div><div class="game-points"><span>PUNKTE</span><strong id="game-score">0</strong></div></div>
+      <div class="game-meta"><span id="game-progress-label">Frage 1 von 10</span><span id="game-streak">🔥 0er-Serie</span><span id="game-lives" hidden>❤️❤️❤️</span><span id="game-timer" hidden>⏱ 15s</span></div>
+      <div class="progress-track"><div id="game-progress-bar"></div></div>
+      <div class="question-card">
+        <div class="question-badges"><span class="question-category" id="question-category">🧠 Allgemeinwissen</span><span class="question-difficulty" id="question-difficulty">Einfach</span></div>
+        <h3 id="question-text">Deine Frage erscheint hier.</h3>
+        <div class="answer-grid" id="answer-grid" role="group" aria-label="Antwortmöglichkeiten"></div>
+        <div class="answer-feedback" id="answer-feedback" hidden role="status"></div>
+        <div class="question-bottom"><small id="keyboard-hint">Tipp: Antworte mit den Tasten 1–4</small><button type="button" class="button button-primary" id="next-question" hidden>Nächste Frage →</button></div>
+      </div>
+      <p class="game-reminder">✦ Das Quiz speichert deinen Fortschritt nach jeder abgeschlossenen Runde.</p>
+    </section>
+
+    <section class="shell result-layout" id="results-screen" hidden>
+      <div class="result-card"><div class="result-medal" id="result-medal">🏆</div><span class="eyebrow">RUNDE ABGESCHLOSSEN</span><h2 id="result-title">Stark gespielt!</h2><p id="result-subtitle">Deine Auswertung ist da.</p><div class="result-score"><strong id="result-score">0</strong><span>PUNKTE</span></div><div class="result-stats"><div><strong id="result-correct">0/10</strong><small>Richtig</small></div><div><strong id="result-rate">0 %</strong><small>Trefferquote</small></div><div><strong id="result-streak">0</strong><small>Beste Serie</small></div></div><p class="record-note" id="result-record" hidden>✨ Neuer persönlicher Rekord!</p><div class="result-actions"><button class="button button-primary" id="play-again" type="button">Nochmal spielen ↗</button><button class="button button-outline" id="back-to-home" type="button">Andere Kategorie</button></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="shell footer-content"><div><strong>✦ QUIZ<span class="brand-accent">TSRB</span></strong><p>Deine tägliche Dosis Wissen und Spaß.</p></div><div><span>Mit ♥ gebaut für Quizfans.</span><span>Ergebnisse werden nur lokal in deinem Browser gespeichert.</span></div></div></footer>
+
+  <dialog id="scores-dialog" class="scores-dialog" aria-labelledby="scores-title"><div class="modal-head"><div><span class="section-kicker">DEINE ERFOLGE</span><h2 id="scores-title">🏆 Meine Rekorde</h2></div><button type="button" class="icon-btn" id="scores-close" aria-label="Schließen">✕</button></div><div id="scores-content" class="scores-content"></div><div class="modal-footer"><button type="button" class="button button-ghost danger" id="scores-reset">Daten zurücksetzen</button><button type="button" class="button button-primary" id="scores-done">Fertig</button></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
