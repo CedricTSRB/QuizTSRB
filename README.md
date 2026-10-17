@@ -4,7 +4,9 @@ Eine moderne, kostenlose Quiz-Website auf Deutsch – direkt im Browser spielbar
 
 ## Funktionen
 
-- 13 Wissenskategorien + Alles gemischt
+- 14 Wissenskategorien + Alles gemischt
+- 195 Länderflaggen mit manueller Eingabe des Ländernamens und alternativen Schreibweisen
+- Separate Flaggenquiz-Kategorie mit Runden zu 5, 10, 20 oder allen 195 Ländern
 - 77 vorgefertigte Quizfragen (inklusive Wahr/Falsch)
 - Klassisch, Blitz-Quiz (15 Sekunden pro Frage), Überleben (3 Leben), Wahr/Falsch
 - Schwierigkeitsgrade Einfach, Mittel, Schwer oder Gemischt
