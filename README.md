@@ -22,7 +22,7 @@ Eine moderne, kostenlose Quiz-Website auf Deutsch – direkt im Browser spielbar
 
 Öffne das Repository auf GitHub und wähle **Settings → Pages → Build and deployment → Deploy from a branch → main → /(root) → Save**.
 
-Danach ist die Seite unter **https://cedrict srb.github.io/QuizTSRB/** (ohne Leerzeichen im Benutzernamen) erreichbar, sobald GitHub Pages die Veröffentlichung abgeschlossen hat.
+Danach ist die Seite unter **https://cedrictsrb.github.io/QuizTSRB/** (ohne Leerzeichen im Benutzernamen) erreichbar, sobald GitHub Pages die Veröffentlichung abgeschlossen hat.
 
 ## Fragen ergänzen
 
