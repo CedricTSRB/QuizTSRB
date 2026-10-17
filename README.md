@@ -4,7 +4,7 @@ Eine moderne, kostenlose Quiz-Website auf Deutsch – direkt im Browser spielbar
 
 ## Funktionen
 
-- 12 Wissenskategorien + Alles gemischt
+- 13 Wissenskategorien + Alles gemischt
 - 77 vorgefertigte Quizfragen (inklusive Wahr/Falsch)
 - Klassisch, Blitz-Quiz (15 Sekunden pro Frage), Überleben (3 Leben), Wahr/Falsch
 - Schwierigkeitsgrade Einfach, Mittel, Schwer oder Gemischt
